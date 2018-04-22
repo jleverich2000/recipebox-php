@@ -5,6 +5,7 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+.vscode/
 
 ###> symfony/webpack-encore-pack ###
 /node_modules/

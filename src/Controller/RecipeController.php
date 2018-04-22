@@ -12,7 +12,7 @@ class RecipeController extends Controller
     /**
      * @Route("/recipe", name="recipe")
      */
-    public function index()
+    public function recipe()
     {
         $recipeId = 0;
 
