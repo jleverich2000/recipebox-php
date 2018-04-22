@@ -35,10 +35,22 @@ class RecipeRepository extends ServiceEntityRepository
         $sql = '
             SELECT * FROM recipe r
             WHERE r.prepTime < :prepTime
-            ORDER BY r.prepTime ASC
             ';
         $stmt = $conn->prepare($sql);
-        $stmt->execute(['prepTime' => 100]);
+        $stmt->execute(['recipes' => 100]);
+    
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAll();
+    }
+
+    public function findAllByNameOrIngredient($term): array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+    
+        $sql = "SELECT * FROM recipe WHERE title OR ingredients LIKE '%$term%'";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['term' => 100]);
     
         // returns an array of arrays (i.e. a raw data set)
         return $stmt->fetchAll();

@@ -1,6 +1,18 @@
-#index:
+# index:
 #    path: /
-#    controller: App\Controller\DefaultController::index
+#    controller: App\Controller\RecipeController::index
+index:
+   path: /
+   controller: App\Controller\HomeController::home
+
+recipe:
+   path: /recipe
+   controller: App\Controller\RecipeController::recipe
+
+results:
+    path: /results
+    controller: App\Controller\ResultsController::results
+
 app_lucky_number:
     path: /lucky/number
     controller: App\Controller\LuckyController::number
