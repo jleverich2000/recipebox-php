@@ -56,6 +56,19 @@ class RecipeRepository extends ServiceEntityRepository
         return $stmt->fetchAll();
     }
 
+    public function findRecipeById($term): array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+    
+        $sql = "SELECT * FROM recipe WHERE id = '$term'";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['term' => 100]);
+    
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAll();
+    }
+
     public function findAllByCatagory($catagory): array
     {
         $conn = $this->getEntityManager()->getConnection();
