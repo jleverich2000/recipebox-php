@@ -10,13 +10,11 @@
 <div class="example-wrapper">
     <h1>Search Results</h1>
 
-    <ul style="list-style: none">
-        {% for result in results %}
-            <li>{{ result.title }}</li>
-        {% endfor %} 
-    </ul>
-    
- 
+    {% for result in results %}
+        <a href="{{ path('recipe', {'recipeId': result.id}) }}">
+        {{ result.title }}
+        </a>
+    {% endfor %}
 
   
 </div>
