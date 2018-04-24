@@ -115,9 +115,4 @@ class RecipeRepository extends ServiceEntityRepository
         // returns an array of arrays (i.e. a raw data set)
         return $stmt->fetchAll();
     }
-//     function update($table, $setProperty, $setValue, $queryProperty, $queryValue)
-//     {
-//         $sql = "UPDATE $table SET  $setProperty='$setValue' WHERE $queryProperty = '$queryValue'";
-//         return queryMysql($sql);
-// }
 }

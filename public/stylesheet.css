@@ -1,0 +1,18 @@
+h1 {color: #4d4d4d;
+    text-align: center;
+}
+
+div { text-align: left;
+    font: Verdana, Arial, sans-serif;
+    overflow: auto;
+}
+
+ul {
+    text-align: left;
+    list-style-type: none;
+  }
+
+  li:nth-of-type(odd) { background-color: #f2f2f2;
+  }
+
+  

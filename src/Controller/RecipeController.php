@@ -15,7 +15,6 @@ class RecipeController extends Controller
      */
     public function recipe(Request $request)
     {
-
         $recipeId = $request->query->get('recipeId');
         $recipes = $this->getDoctrine()
         ->getRepository(Recipe::class)
@@ -26,33 +25,6 @@ class RecipeController extends Controller
             'recipe_ingredients' => json_decode($recipes[0]['ingredients']),
             'recipe_steps' => $recipes[0]['steps'] ,
             'recipe_method' => $recipes[0]['method'] ,
-
-
-            // 'recipe_name' => $recipes[$recipeId]['title'] ,
-            // 'recipe_ingredients' => json_decode($recipes[$recipeId]['ingredients']),
-            // 'recipe_steps' => $recipes[$recipeId]['steps'] ,
-            // 'recipe_method' => $recipes[$recipeId]['method'] ,
-
         ]);
     }
- 
-//     /**
-//  * @Route("/recipe/{id}", name="recipe_show")
-//  */
-// public function showAction($id)
-// {
-//     $recipe = $this->getDoctrine()
-//         ->getRepository(Recipe::class)
-//         ->find($id);
-
-//     if (!$recipe) {
-//         throw $this->createNotFoundException(
-//             'No recipe found for id '.$id
-//         );
-//     }
-
-//     return $this->render('recipe/recipe.twig', [
-//         'Title' =>  $recipe->getTitle,
-//     ]);
-// }
 }
