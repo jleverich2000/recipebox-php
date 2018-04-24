@@ -9,3 +9,7 @@ recipe:
 results:
     path: /results
     controller: App\Controller\ResultsController::results
+
+save-recipe:
+    path: /save-recipe
+    controller: App\Controller\SaveRecipeController::saveRecipe

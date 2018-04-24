@@ -2,10 +2,21 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="stylesheet.css">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+            <nav>
+                    <ul class="clean">
+                        <li><a href="{{ path('results', {'search': 'chicken'}) }}">Chicken</a></li>
+                        <li><a href="{{ path('results', {'search': 'beef'}) }}">Beef</a></li>
+                        <li><a href="{{ path('results', {'search': 'seafood'}) }}">Seafood</a></li>
+                        <li><a href="{{ path('results', {'search': 'pork'}) }}">Pork</a></li>
+                        <li><a href="{{ path('results', {'search': 'meatless'}) }}">Meatless</a></li>
+                        <li><a href="{{ path('index') }}">Home</a></li>
+                    </ul>
+                    </nav>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
