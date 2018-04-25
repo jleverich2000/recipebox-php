@@ -13,3 +13,7 @@ results:
 save-recipe:
     path: /save-recipe
     controller: App\Controller\SaveRecipeController::saveRecipe
+
+category:
+    path: /category
+    controller: App\Controller\CategoryController::category  
