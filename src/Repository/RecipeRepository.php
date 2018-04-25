@@ -69,15 +69,12 @@ class RecipeRepository extends ServiceEntityRepository
         return $stmt->fetchAll();
     }
 
-    public function findAllByCatagory($catagory): array
+    public function findAllByCatagory($category): array
     {
         $conn = $this->getEntityManager()->getConnection();
     
-        $sql = '
-            SELECT * FROM recipe r
-            WHERE r.catagory = :catagory
-            ORDER BY r.title ASC
-            ';
+        $sql = "SELECT * FROM recipe WHERE catagory = '$category'";
+
         $stmt = $conn->prepare($sql);
         $stmt->execute(['recipes' => 100]);
     
