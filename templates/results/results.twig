@@ -11,7 +11,7 @@
     {% for result in results %}
         <a href="{{ path('recipe', {'recipeId': result.id}) }}">
         {{ result.title }}
-        </a>
+        </a><br>
     {% endfor %}
 </div>
 {% endblock %}

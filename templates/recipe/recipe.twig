@@ -15,9 +15,12 @@
             <li>{{ ingredient }}</li>
         {% endfor %}
     </ul>
+    <ul>
+        {% for step in recipe_steps.steps %}
+            <li>{{ step }}</li>
+        {% endfor %}
+    </ul>
     
-    <p>{{ recipe_steps }}</p>
-
   
 </div>
 {% endblock %}

@@ -3,21 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="stylesheet.css">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Recipe Box{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
             <nav>
                     <ul class="clean">
+                        <li><a href="{{ path('index') }}">Home</a></li>
                         <li><a href="{{ path('category', {'search': 'chicken'}) }}">Chicken</a></li>
                         <li><a href="{{ path('category', {'search': 'beef'}) }}">Beef</a></li>
                         <li><a href="{{ path('category', {'search': 'seafood'}) }}">Seafood</a></li>
                         <li><a href="{{ path('category', {'search': 'pork'}) }}">Pork</a></li>
                         <li><a href="{{ path('category', {'search': 'meatless'}) }}">Meatless</a></li>
-                        <li><a href="{{ path('index') }}">Home</a></li>
                     </ul>
-                    </nav>
+            </nav>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
-    </body>
+       
 </html>

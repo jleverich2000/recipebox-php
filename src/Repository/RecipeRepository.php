@@ -28,21 +28,6 @@ class RecipeRepository extends ServiceEntityRepository
         queryMysql($sql);
     }
       
-    public function findAllLessThanPrepTime($prepTime): array
-    {
-        $conn = $this->getEntityManager()->getConnection();
-    
-        $sql = '
-            SELECT * FROM recipe r
-            WHERE r.prepTime < :prepTime
-            ';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute(['recipes' => 100]);
-    
-        // returns an array of arrays (i.e. a raw data set)
-        return $stmt->fetchAll();
-    }
-
     public function findAllByNameOrIngredient($term): array
     {
         $conn = $this->getEntityManager()->getConnection();
@@ -75,37 +60,6 @@ class RecipeRepository extends ServiceEntityRepository
     
         $sql = "SELECT * FROM recipe WHERE catagory = '$category'";
 
-        $stmt = $conn->prepare($sql);
-        $stmt->execute(['recipes' => 100]);
-    
-        // returns an array of arrays (i.e. a raw data set)
-        return $stmt->fetchAll();
-    }
-
-    public function findAllByMethod($method): array
-    {
-        $conn = $this->getEntityManager()->getConnection();
-    
-        $sql = '
-            SELECT * FROM recipe r
-            WHERE r.method = :method
-            ORDER BY r.title ASC
-            ';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute(['recipes' => 100]);
-    
-        // returns an array of arrays (i.e. a raw data set)
-        return $stmt->fetchAll();
-    }
-
-    public function findAll(): array
-    {
-        $conn = $this->getEntityManager()->getConnection();
-    
-        $sql = '
-            SELECT * FROM recipe r
-            ORDER BY r.title ASC
-            ';
         $stmt = $conn->prepare($sql);
         $stmt->execute(['recipes' => 100]);
     
