@@ -22,7 +22,7 @@ class HomeController extends Controller
 
         $form = $this->createFormBuilder($search)
             ->add('search', TextType::class)
-            ->add('save', SubmitType::class, array('label' => 'Search'))
+            ->add('save', SubmitType::class, array('label' => 'Go'))
             ->getForm();
 
         $form->handleRequest($request);
