@@ -10,8 +10,29 @@
 
 <div class="example-wrapper">
     <h1>save recipe</h1>
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
+    <form name=form action="/saved" method="post">
+        <label for="title">Title</label>
+        <input type="text" name="title"><br>
+
+        <label for="ingredients">Ingredients</label> 
+        <input type="text" name="ingredients"><br>
+
+        <label for="steps">Steps</label>
+        <input type="text" name="steps"><br>
+
+        <label for="prep_time">Prep time</label>
+        <input type="text" name="prep_time"><br>
+
+        <label for="skill">Skill level</label>
+        <input type="text" name="skill"><br>
+
+        <label for="method">Method</label>
+        <input type="text" name="method"><br>
+
+        <label for="catagory">Category</label>
+        <input type="text" name="catagory"><br>
+
+        <input type="submit" value="Submit">
+      </form>
 </div>
 {% endblock %}

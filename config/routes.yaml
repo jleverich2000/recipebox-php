@@ -12,8 +12,12 @@ results:
 
 save-recipe:
     path: /save-recipe
-    controller: App\Controller\SaveRecipeController::saveRecipe
+    controller: App\Controller\SaveRecipeController::saveRecipeGet
 
 category:
     path: /category
     controller: App\Controller\CategoryController::category  
+
+save:
+    path: /saved
+    controller: App\Controller\SaveRecipeController::saveRecipePost    
