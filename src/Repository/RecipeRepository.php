@@ -19,13 +19,17 @@ class RecipeRepository extends ServiceEntityRepository
         parent::__construct($registry, Recipe::class);
     }
 
-    function save($table, $insData ) 
+    function saveRecipe(array $insData ) 
     {
+        $conn = $this->getEntityManager()->getConnection();
+
         $columns = implode(", ",array_keys($insData));
         $values  = array_values($insData);
-        $valuesString =  sqlStringBuilder($values);
-        $sql = "INSERT INTO $table ($columns) VALUES($valuesString)";
-        queryMysql($sql);
+        $valuesString =  $this->sqlStringBuilder($values);
+        $sql = "INSERT INTO recipe ($columns) VALUES($valuesString)";
+       
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['term' => 100]);
     }
       
     public function findAllByNameOrIngredient($term): array
@@ -65,5 +69,20 @@ class RecipeRepository extends ServiceEntityRepository
     
         // returns an array of arrays (i.e. a raw data set)
         return $stmt->fetchAll();
+    }
+
+    public function sqlStringBuilder($arrayValues)
+    {
+        $outputString ='';
+        for ($i = 0; $i < count($arrayValues); $i++) 
+        {
+            $outputString =  $outputString . '\''.$arrayValues[$i].'\'';
+
+            if($i < count($arrayValues)-1)
+            {
+                $outputString =  $outputString .  ', ';
+            }
+        }
+        return  $outputString;
     }
 }
