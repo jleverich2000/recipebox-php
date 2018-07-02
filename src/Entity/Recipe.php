@@ -62,6 +62,16 @@ class Recipe
     private $season;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $servings;
+
+    /**
+     * @ORM\Column(type="string", length=64)
+     */
+    private $image;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     private $active;
@@ -79,6 +89,18 @@ class Recipe
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
@@ -187,6 +209,18 @@ class Recipe
     public function setActive(bool $active): self
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    public function getServings(): ?int
+    {
+        return $this->servings;
+    }
+
+    public function setServings(?int $servings): self
+    {
+        $this->servings = $servings;
 
         return $this;
     }
