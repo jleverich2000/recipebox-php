@@ -22,6 +22,8 @@ class RecipeController extends Controller
 
         return $this->render('recipe/recipe.twig', [
             'recipe_name' => $recipes[0]['title'] ,
+            'recipe_image' => $recipes[0]['image'] ,
+            'recipe_servings' => $recipes[0]['servings'] ,
             'recipe_ingredients' => json_decode($recipes[0]['ingredients']),
             'recipe_steps' => json_decode($recipes[0]['steps']),
             'recipe_method' => $recipes[0]['method'] ,

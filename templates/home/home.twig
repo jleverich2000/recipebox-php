@@ -2,17 +2,17 @@
 
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #eeeeee; padding: 2px 6px; }
-</style>
+{# <style>
+    .wrapper { margin: 1em auto; max-width: 1200px; width: 95%; font: 18px/1.5 sans-serif; }
+    .wrapper code { background: #eeeeee; padding: 2px 6px; }
+</style> #}
 
-<div class="example-wrapper">
+<div class="wrapper">
     <h1>RecipeBox</h1>
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_end(form) }}
 
 <div class="pic"><img src="vintage_recipe_box.jpg" alt="recipe box" height="300" width="450"></div>
-
+</div>
 {% endblock %}

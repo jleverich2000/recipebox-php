@@ -3,36 +3,48 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
+<div class="wrapper">
     <h1>save recipe</h1>
-    <form name=form action="/saved" method="post">
+    <form name=form action="/saved" method="post"  onsubmit="recipeBuilder()">
         <label for="title">Title</label>
-        <input type="text" name="title"><br>
+        <input class="block" type="text" name="title"><br>
+
+        <label for="image">Image URL</label>
+        <input class="url" type="text" name="image"><br>
+
+        <label for="servings">Servings</label>
+        <input class="block" type="text" name="servings"><br>
 
         <label for="ingredients">Ingredients</label> 
-        <input type="text" name="ingredients"><br>
+  
+        <div id="ingredients-form-field">     
+             <input class="ingred no-follow" type="text"><br>
+        </div>
+        <input class="block add-button" type="button" onclick="addIngredientsField();" value="Add Ingredient"><br>
+        <input type="hidden" name="ingredients" id="ingredients" value="">
 
-        <label for="steps">Steps</label>
-        <input type="text" name="steps"><br>
+        <label for="steps">Steps</label> 
+  
+        <div id="steps-form-field">     
+            <input class="step no-follow" type="text"><br>
+        </div>
+        <input class="block add-button" type="button" onclick="addStepsField();" value="Add Step"><br>
+        <input type="hidden" name="steps" id="steps" value="">
 
-        <label for="prep_time">Prep time</label>
-        <input type="text" name="prep_time"><br>
+        <label for="prep_time">Prep time (minutes)</label>
+        <input class="block" maxlength="4" size="4 type="text" name="prep_time"><br>
 
         <label for="skill">Skill level</label>
-        <input type="text" name="skill"><br>
+        <input class="block" maxlength="1" size="1" type="text" name="skill"><br>
 
         <label for="method">Method</label>
-        <input type="text" name="method"><br>
+        <input class="block" type="text" name="method"><br>
 
         <label for="catagory">Category</label>
-        <input type="text" name="catagory"><br>
+        <input class="block" type="text" name="catagory"><br>
 
-        <input type="submit" value="Submit">
+        <input class="block add-button" type="submit" value="Submit">
       </form>
 </div>
 {% endblock %}
